@@ -10,6 +10,12 @@ then
     exit 1
 fi
 
+if [ ! -f "$SCRIPT_INPUT_FILE_0" ]
+then
+    echo "File $SCRIPT_INPUT_FILE_0 not found."
+    exit 1
+fi
+
 cat ${SCRIPT_INPUT_FILE_0%/*}/*.swift > $TMPFILE
 
 xcrun -sdk macosx swift $TMPFILE
